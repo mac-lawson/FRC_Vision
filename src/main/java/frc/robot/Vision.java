@@ -50,8 +50,5 @@ public class Vision {
             }
     }
 
-    public static void getRange() {
-
-    }
     
 }
