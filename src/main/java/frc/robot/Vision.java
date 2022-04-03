@@ -2,15 +2,20 @@ package frc.robot;
 
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.UsbCamera;
+import edu.wpi.first.cscore.VideoSink;
+
 import org.photonvision.PhotonCamera;
 import org.photonvision.PhotonUtils;
 /**
- * Basic Vision System for FRC Team 3373 using PhotonVision
+ * A multi-functional Vision System for FRC using PhotonVision
  * @author Mac Lawson
  * @see frc.robot.Vision.getAngleAndDistance()
  * In Robot.java, call getAngleAndDistance()
  */
 public class Vision {
+    // regular remote-eyes
     // camera positioning info
     final static double CAMERA_HEIGHT_METERS = Units.inchesToMeters(24);
     final static double TARGET_HEIGHT_METERS = Units.feetToMeters(5);
@@ -49,6 +54,18 @@ public class Vision {
                 }
             }
     }
+
+    /**
+     * When called, begins a capture of a vision feed to a specific port
+     * @param CAMERA_NAME
+     * @param PORT
+     */
+    public static void VideoCapture(UsbCamera CAMERA_NAME, Integer PORT) {
+        CAMERA_NAME = CameraServer.startAutomaticCapture(PORT);
+    }
+
+
+    
 
     
 }
